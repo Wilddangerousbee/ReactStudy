@@ -1,9 +1,9 @@
 import React from 'react';
 import reactDOM from 'react-dom';
 
-import TodoList from './components/todo-list.js'
-import SearchPanel from './components/search-panel.js'
-import ArticlesList from './components/article-list.js';
+import TodoList from './components/todo-list/todo-list.js'
+import SearchPanel from './components/search-panel/search-panel.js'
+import ArticlesList from './components/article-list/article-list.js';
 
 const App = () => {
 
