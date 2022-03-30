@@ -1,34 +1,9 @@
 import React from 'react';
 import reactDOM from 'react-dom';
 
-const TodoList = () => {
-  const items = ['Learn React', 'Build New Project'];
-  return (
-    <ul>
-      <li>{items[0]}</li>
-      <li>{items[1]}</li>
-    </ul>
-  )
-}
-
-const ArticlesList = () => {
-  return (
-    <h1>My Todo List</h1>
-  )
-}
-
-const SearchPanel = () => {
-  const searchStyle = {
-    frontsize: '20px'
-  };
-
-  return (
-    <input 
-      style={searchStyle} 
-      placeholder='Search'
-      disabled/>
-  )
-}
+import TodoList from './components/todo-list.js'
+import SearchPanel from './components/search-panel.js'
+import ArticlesList from './components/article-list.js';
 
 const App = () => {
   
