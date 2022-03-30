@@ -4,9 +4,9 @@ import TodoListItems from './todo-list-items.js'
 
 const TodoList = ({ todoData }) => {
 
-  const elements = todoData.map((item) => {
+  const elements = todoData.map(({id, ...transferItem}) => {
     return (
-      <li><TodoListItems {...item}/></li>
+      <li key={id}><TodoListItems {...transferItem}/></li>
     )
   })
 
