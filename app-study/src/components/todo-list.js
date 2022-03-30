@@ -6,7 +6,7 @@ const TodoList = () => {
     const ListItems = ["Learn React", "Drink Coffee"]
     return (
       <ul>
-        <li><TodoListItems item={ListItems[0]}/></li>
+        <li><TodoListItems item={ListItems[0]} important/></li>
         <li><TodoListItems item={ListItems[1]}/></li>
       </ul>
     )
