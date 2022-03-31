@@ -1,9 +1,11 @@
 import React from 'react';
 import reactDOM from 'react-dom';
 
-import TodoList from './components/todo-list/todo-list.js'
-import SearchPanel from './components/search-panel/search-panel.js'
+import TodoList from './components/todo-list/todo-list.js';
+import SearchPanel from './components/search-panel/search-panel.js';
 import ArticlesList from './components/article-list/article-list.js';
+
+import "./index.css";
 
 const App = () => {
 
@@ -12,7 +14,7 @@ const App = () => {
   {lable: "Smoke Crack", important: false, id: 3}];
   
   return (
-    <div>
+    <div className='todo-app'>
       <ArticlesList />
       <SearchPanel/>
       <TodoList  todoData={todoData}/>

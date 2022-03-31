@@ -1,0 +1,12 @@
+.article-list {
+    align-items: flex-end;
+  }
+  
+  .article-list h1 {
+    flex-grow: 1;
+  }
+  
+  .article-list h2 {
+    font-size: 1.2rem;
+    color: grey;
+  }
