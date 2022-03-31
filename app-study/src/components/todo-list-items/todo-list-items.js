@@ -3,6 +3,10 @@ import React, {Component} from "react";
 import './todo-list-items.css'
 
 export default class TodoListItems extends Component{
+
+    onLable = ()=>{
+        console.log(this.props.lable);
+    };
     
     render(){
         const { lable, important = false } = this.props;
@@ -12,7 +16,7 @@ export default class TodoListItems extends Component{
         };
         return (
             <span className="todo-list-item">
-            <span className="todo-list-item-label" style={style}>{lable}</span>
+            <span className="todo-list-item-label" onClick={this.onLable} style={style}>{lable}</span>
             <button type="button"
                 className="btn btn-outline-success btn-sm float-right"
                 >
