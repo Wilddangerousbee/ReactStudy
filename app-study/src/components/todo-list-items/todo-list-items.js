@@ -5,7 +5,10 @@ import './todo-list-items.css'
 export default class TodoListItems extends Component{
     constructor(){
         super();
-        this.state = {done: false};
+        this.state = {
+            done: false,
+            important: false
+        };
     }
 
     onLable = ()=>{
@@ -13,21 +16,24 @@ export default class TodoListItems extends Component{
             done: true
         })
     };
+
+    onImportantButton = ()=>{
+        this.setState({
+            important: true
+        })
+    }
     
     render(){
-        const { lable, important = false } = this.props;
-        const {done} = this.state;
+        const { lable } = this.props;
+        const {done, important} = this.state;
 
-        const style = {
-             color: important ? "tomato" : "black"
-        };
-
-        const listItemClass = done ? "todo-list-item-label done" : "todo-list-item-label"; 
+        let listItemClass = done ? "todo-list-item-label done" : "todo-list-item-label"; 
+        listItemClass = important ? listItemClass + " important" : listItemClass;
 
         return (
             <span className="todo-list-item">
-            <span className={listItemClass} onClick={this.onLable} style={style}>{lable}</span>
-            <button type="button"
+            <span className={listItemClass} onClick={this.onLable} >{lable}</span>
+            <button onClick={this.onImportantButton} type="button"
                 className="btn btn-outline-success btn-sm float-right"
                 >
             <i className="fa fa-exclamation"></i>

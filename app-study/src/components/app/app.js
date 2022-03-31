@@ -9,9 +9,9 @@ import "./app.css";
 
 const App = () => {
 
-  const todoData = [{lable: "Learn React", important: true, id: 1},
-  {lable: "Drink Coffee", important: false, id: 2}, 
-  {lable: "Smoke Crack", important: false, id: 3}];
+  const todoData = [{lable: "Learn React", id: 1},
+  {lable: "Drink Coffee", id: 2}, 
+  {lable: "Smoke Crack", id: 3}];
   
   return (
     <div className='todo-app'>
