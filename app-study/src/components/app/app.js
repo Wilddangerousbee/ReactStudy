@@ -3,6 +3,7 @@ import React from 'react';
 import TodoList from './../todo-list';
 import SearchPanel from './../search-panel';
 import ArticlesList from './../article-list';
+import ItemStatusFilter from './../item-status-filter';
 
 import "./app.css";
 
@@ -14,9 +15,12 @@ const App = () => {
   
   return (
     <div className='todo-app'>
-      <ArticlesList />
-      <SearchPanel/>
-      <TodoList  todoData={todoData}/>
+        <ArticlesList />
+        <div className="search-panel d-flex">
+            <SearchPanel/>
+            <ItemStatusFilter/>
+        </div>
+        <TodoList  todoData={todoData}/>
     </div>
   )
 }

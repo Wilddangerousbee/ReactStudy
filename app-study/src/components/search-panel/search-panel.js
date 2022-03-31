@@ -9,6 +9,7 @@ const SearchPanel = () => {
   
     return (
       <input className="form-control search-input"
+        type="text"
         style={searchStyle} 
         placeholder='Search'
         disabled/>
