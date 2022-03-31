@@ -12,14 +12,18 @@ export default class TodoListItems extends Component{
     }
 
     onLable = ()=>{
-        this.setState({
-            done: true
+        this.setState(({done}) => {
+            return {
+                done: !done
+            };
         })
     };
 
-    onImportantButton = ()=>{
-        this.setState({
-            important: true
+    onImportantButton = (important)=>{
+        this.setState(({important}) => {
+            return {
+                important: !important
+            };
         })
     }
     
