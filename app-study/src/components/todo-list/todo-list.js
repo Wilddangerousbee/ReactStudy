@@ -4,11 +4,18 @@ import "./todo-list.css";
 
 import TodoListItems from './../todo-list-items'
 
-const TodoList = ({ todoData }) => {
+const TodoList = ({ todoData, onDeleted}) => {
 
   const elements = todoData.map(({id, ...transferItem}) => {
     return (
-      <li className="list-group-item" key={id}><TodoListItems {...transferItem}/></li>
+      <li 
+        className="list-group-item" 
+        key={id}>
+          <TodoListItems 
+            {...transferItem} 
+            onDeleted={() => onDeleted(id)}
+          />      
+      </li>
     )
   })
 
