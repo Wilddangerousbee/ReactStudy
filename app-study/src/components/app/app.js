@@ -20,6 +20,12 @@ export default class App extends Component{
 
     MAX_ID = 9999999
 
+    TodoData = (item) => {
+        return ({
+            lable: item, id: this.generationId(this.todoData), important: false, done: false
+        })
+    }
+
     generationId(todoData){
         while(true){
             let newId = Math.random(this.MAX_ID);
@@ -101,6 +107,7 @@ export default class App extends Component{
                     <SearchPanel/>
                     <ItemStatusFilter
                     onFilter = {this.onFilter}
+                    filterItems = {this.state.filterItems}
                     />
                 </div>
                 <TodoList  
