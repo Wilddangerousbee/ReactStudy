@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import "./add-element.css"
 
-class AddElement extends Component {
+export default class AddElement extends Component {
     constructor(){
         super()
         this.state = {
@@ -31,5 +31,3 @@ class AddElement extends Component {
         );
     }
 };
-
-export default AddElement;
