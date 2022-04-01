@@ -74,6 +74,12 @@ export default class App extends Component{
             };
         })
     }
+
+    onFilter = (newFilter) => {
+        this.setState({
+            filterItems: newFilter
+        })
+    }
     
     render(){
         let todoDataToTransfer = this.state.todoData.slice();
@@ -83,7 +89,7 @@ export default class App extends Component{
                 todoDataToTransfer = this.state.todoData;
             } else if (this.state.filterItems === "Important"){
                 todoDataToTransfer = this.state.todoData.filter(({important}) => important);
-            } else {
+            } else if (this.state.filterItems === "Done") {
                 todoDataToTransfer = this.state.todoData.filter(({done}) => done);
             }
         }
@@ -93,8 +99,8 @@ export default class App extends Component{
                 <ArticlesList />
                 <div className="search-panel d-flex">
                     <SearchPanel/>
-                    <ItemStatusFilter 
-                        filterItems = {this.state.filterItems}
+                    <ItemStatusFilter
+                    onFilter = {this.onFilter}
                     />
                 </div>
                 <TodoList  
