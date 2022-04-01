@@ -13,7 +13,8 @@ export default class App extends Component{
         this.state = {
             todoData: [{lable: "Learn React", id: 1, important: false, done: false},
             {lable: "Drink Coffee", id: 2, important: false, done: false}, 
-            {lable: "Smoke Crack", id: 3, important: false, done: false}]
+            {lable: "Smoke Crack", id: 3, important: false, done: false}],
+            filterItems: "All"
         }
     }
 
@@ -75,15 +76,29 @@ export default class App extends Component{
     }
     
     render(){
+        let todoDataToTransfer = this.state.todoData.slice();
+
+        for (let index = 0; index < this.state.todoData.length; index++) {
+            if (this.state.filterItems === "All"){
+                todoDataToTransfer = this.state.todoData;
+            } else if (this.state.filterItems === "Important"){
+                todoDataToTransfer = this.state.todoData.filter(({important}) => important);
+            } else {
+                todoDataToTransfer = this.state.todoData.filter(({done}) => done);
+            }
+        }
+
         return (
             <div className='todo-app'>
                 <ArticlesList />
                 <div className="search-panel d-flex">
                     <SearchPanel/>
-                    <ItemStatusFilter/>
+                    <ItemStatusFilter 
+                        filterItems = {this.state.filterItems}
+                    />
                 </div>
                 <TodoList  
-                    todoData={this.state.todoData}
+                    todoData={todoDataToTransfer}
                     onDeleted = {this.onDeleted}
                     onImportantButton = {this.onImportantButton}
                     onLable={this.onLable}
