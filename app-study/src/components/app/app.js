@@ -11,9 +11,9 @@ export default class App extends Component{
     constructor(){
         super();
         this.state = {
-            todoData: [{lable: "Learn React", id: 1},
-            {lable: "Drink Coffee", id: 2}, 
-            {lable: "Smoke Crack", id: 3}]
+            todoData: [{lable: "Learn React", id: 1, important: false, done: false},
+            {lable: "Drink Coffee", id: 2, important: false, done: false}, 
+            {lable: "Smoke Crack", id: 3, important: false, done: false}]
         }
     }
 
@@ -39,10 +39,38 @@ export default class App extends Component{
     onAdd = (nameElement) => {
         this.setState(({todoData}) => {
             let copyTodoData = todoData.slice();
-            copyTodoData.push({lable: nameElement, id: this.generationId(todoData)});
+            copyTodoData.push({lable: nameElement, id: this.generationId(todoData), important: false, done: false});
             return({
                 todoData: copyTodoData
             })
+        })
+    }
+
+    onLable = (id)=>{
+        this.setState(({todoData}) => {
+            const newTodoData = todoData.slice();
+            for (let index = 0; index < newTodoData.length; index++) {
+                if (newTodoData[index].id === id) {
+                    newTodoData[index].done = !newTodoData[index].done;
+                }
+            }
+            return {
+                todoData: newTodoData
+            };
+        })
+    };
+
+    onImportantButton = (id)=>{
+        this.setState(({todoData}) => {
+            const newTodoData = todoData.slice();
+            for (let index = 0; index < newTodoData.length; index++) {
+                if (newTodoData[index].id === id) {
+                    newTodoData[index].important = !newTodoData[index].important;
+                }
+            }
+            return {
+                todoData: newTodoData
+            };
         })
     }
     
@@ -57,6 +85,8 @@ export default class App extends Component{
                 <TodoList  
                     todoData={this.state.todoData}
                     onDeleted = {this.onDeleted}
+                    onImportantButton = {this.onImportantButton}
+                    onLable={this.onLable}
                 />
                 <AddElement onAdd = {this.onAdd} />
             </div>

@@ -7,8 +7,8 @@ export default class ItemStatusFilter extends Component{
         return (
             <div className="btn-group">
                 <button className="btn btn-info" type="button">All</button>
-                <button className="btn btn-outline-secondary" type="button">All</button>
-                <button className="btn btn-outline-secondary" type="button">All</button>
+                <button className="btn btn-outline-secondary" type="button">Important</button>
+                <button className="btn btn-outline-secondary" type="button">Done</button>
             </div>
         )
     }
