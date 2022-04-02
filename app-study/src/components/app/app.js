@@ -94,24 +94,20 @@ export default class App extends Component{
         })
     }
 
-    sortElements = () => {
-        let todoDataToTransfer = this.state.todoData.slice();
-
-        for (let index = 0; index < this.state.todoData.length; index++) {
-            if (this.state.filterItems === "All"){
-                todoDataToTransfer = this.state.todoData;
-            } else if (this.state.filterItems === "Important"){
-                todoDataToTransfer = this.state.todoData.filter(({important}) => important);
-            } else if (this.state.filterItems === "Done") {
-                todoDataToTransfer = this.state.todoData.filter(({done}) => done);
-            }
+    filterElements = () => {
+        if (this.state.filterItems === "All"){
+            return this.state.todoData;
+        } else if (this.state.filterItems === "Important"){
+            return this.state.todoData.filter(({important}) => important);
+        } else if (this.state.filterItems === "Done") {
+            return this.state.todoData.filter(({done}) => done);
         }
         
-        return todoDataToTransfer;
+        return this.state.todoData;
     }
     
     render(){
-        const todoDataToTransfer = this.sortElements(); 
+        const todoDataToTransfer = this.filterElements(); 
 
         return (
             <div className='todo-app'>
