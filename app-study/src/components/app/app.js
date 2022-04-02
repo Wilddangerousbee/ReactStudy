@@ -88,8 +88,7 @@ export default class App extends Component{
         })
     }
 
-    onSearchChange = (e, inputValue) => {
-        console.log(inputValue);
+    onSearchChange = (inputValue) => {
         this.setState({
             searchValue: inputValue
         })
@@ -122,7 +121,7 @@ export default class App extends Component{
                     />
                 </div>
                 <TodoList  
-                    todoData={todoDataToTransfer}
+                    todoData={todoDataToTransfer.filter((element) => element.lable.includes(this.state.searchValue))}
                     onDeleted = {this.onDeleted}
                     onImportantButton = {this.onImportantButton}
                     onLable={this.onLable}
