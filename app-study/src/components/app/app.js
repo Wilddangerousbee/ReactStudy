@@ -93,8 +93,8 @@ export default class App extends Component{
             searchValue: inputValue
         })
     }
-    
-    render(){
+
+    sortElements = () => {
         let todoDataToTransfer = this.state.todoData.slice();
 
         for (let index = 0; index < this.state.todoData.length; index++) {
@@ -106,6 +106,12 @@ export default class App extends Component{
                 todoDataToTransfer = this.state.todoData.filter(({done}) => done);
             }
         }
+        
+        return todoDataToTransfer;
+    }
+    
+    render(){
+        const todoDataToTransfer = this.sortElements(); 
 
         return (
             <div className='todo-app'>
