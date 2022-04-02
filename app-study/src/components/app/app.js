@@ -15,6 +15,7 @@ export default class App extends Component{
             {lable: "Drink Coffee", id: 2, important: false, done: false}, 
             {lable: "Smoke Crack", id: 3, important: false, done: false}],
             filterItems: "All",
+            searchValue: "",
         }
     }
 
@@ -86,6 +87,13 @@ export default class App extends Component{
             filterItems: newFilter
         })
     }
+
+    onSearchChange = (e, inputValue) => {
+        console.log(inputValue);
+        this.setState({
+            searchValue: inputValue
+        })
+    }
     
     render(){
         let todoDataToTransfer = this.state.todoData.slice();
@@ -104,7 +112,10 @@ export default class App extends Component{
             <div className='todo-app'>
                 <ArticlesList />
                 <div className="search-panel d-flex">
-                    <SearchPanel/>
+                    <SearchPanel
+                        searchValue={this.state.searchValue}
+                        onSearchChange={this.onSearchChange}
+                    />
                     <ItemStatusFilter
                     onFilter = {this.onFilter}
                     filterItems = {this.state.filterItems}
