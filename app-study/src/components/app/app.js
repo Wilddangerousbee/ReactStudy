@@ -127,7 +127,7 @@ export default class App extends Component{
                     />
                 </div>
                 <TodoList  
-                    todoData={todoDataToTransfer.filter((element) => element.lable.includes(this.state.searchValue))}
+                    todoData={todoDataToTransfer.filter((element) => element.lable.toLowerCase().includes(this.state.searchValue.toLowerCase()))}
                     onDeleted = {this.onDeleted}
                     onImportantButton = {this.onImportantButton}
                     onLable={this.onLable}
